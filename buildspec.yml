@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo logging into ECR
+
+
+  build:
+    commands:
+      - docker build -t mytestproject:latest -f Dockerfile .
+      - docker tag mytestproject:latest satee143/mytestproject:latest
+      - docker login -u satee143 -p Satee@1432
+
+
+
+  post_build:
+    commands:
+      - docker push satee143/mytestproject:latest
