@@ -42,6 +42,8 @@ RUN python3 -m pip install selenium
 
 RUN python3 -m pip install pytest-html
 
+RUN python3 pytest -v -s 
+
 
 
 
